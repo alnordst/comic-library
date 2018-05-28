@@ -7,6 +7,10 @@ class Book(models.Model):
     # book_title : The plaintext title displayed to readers
     book_title = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.book_title
+
+
 class Chapter(models.Model):
     # book : The book this chapter belongs to
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
@@ -17,6 +21,10 @@ class Chapter(models.Model):
     # chapter_title : The plaintext title displayed to readers
     chapter_title = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.chapter_title
+
+
 class Page(models.Model):
     # chapter : The chapter this page belongs to
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
@@ -24,3 +32,6 @@ class Page(models.Model):
     page_number = models.IntegerField()
     # publish_date : Date this page is published
     publish_date = models.DateTimeField()
+
+    def __str__(self):
+        return self.page_number

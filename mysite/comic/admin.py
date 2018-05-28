@@ -1,3 +1,34 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Book, Chapter, Page
+
+
+class ChapterInline(admin.TabularInline):
+    model = Chapter
+    show_change_link = True
+    
+    
+class PageInline(admin.TabularInline):
+    model = Page
+    show_change_link = True
+    
+    
+class BookAdmin(admin.ModelAdmin):
+    fields = ['book_id', 'book_title']
+    inlines = [ChapterInline]
+
+    
+    
+class ChapterAdmin(admin.ModelAdmin):
+    fields = ['chapter_number', 'chapter_id', 'chapter_title']
+    inlines = [PageInline]
+
+    
+
+class PageAdmin(admin.ModelAdmin):
+    fields = ['page_number', 'publish_date']
+    
+    
+admin.site.register(Book, BookAdmin)
+admin.site.register(Chapter, ChapterAdmin)
+#admin.site.register(Page, PageAdmin)
