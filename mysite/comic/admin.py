@@ -14,13 +14,13 @@ class PageInline(admin.TabularInline):
     
     
 class BookAdmin(admin.ModelAdmin):
-    fields = ['book_id', 'book_title']
+    fields = ['book_url', 'book_title']
     inlines = [ChapterInline]
 
     
     
 class ChapterAdmin(admin.ModelAdmin):
-    fields = ['chapter_number', 'chapter_id', 'chapter_title']
+    fields = ['chapter_number', 'chapter_url', 'chapter_title']
     inlines = [PageInline]
 
     

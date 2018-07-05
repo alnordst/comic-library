@@ -1,0 +1,10 @@
+<h2>{{ the_book.book_title }}</h2>
+<ul>
+{% for the_chapter in chapter_list %}
+    <li>
+        <a href="{% url 'comic:chapter' the_book.book_url the_chapter.chapter_url %}">
+        {{ the_chapter.chapter_title }}
+        </a>
+    </li>
+{% endfor %}
+</ul>

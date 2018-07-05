@@ -1,0 +1,10 @@
+<h1>BIG LOGO</h1>
+<ul>
+{% for the_book in book_list %}
+    <li>
+        <a href="{% url 'comic:book' the_book.book_url %}">
+        {{ the_book.book_title }}
+        </a>
+    </li>
+{% endfor %}
+</ul>

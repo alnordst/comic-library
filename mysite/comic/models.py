@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Book(models.Model):
-    # book_id : The url block for this book => /book_id/chapter_id/page_number/
-    book_id = models.SlugField(max_length=20) #make unique
+    # book_url : The url block for this book => /book_id/chapter_id/page_number/
+    book_url = models.SlugField(max_length=20) #make unique
     # book_title : The plaintext title displayed to readers
     book_title = models.CharField(max_length=100)
 
@@ -14,8 +14,8 @@ class Book(models.Model):
 class Chapter(models.Model):
     # book : The book this chapter belongs to
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    # chapter_id : The url block for this chapter (see book_id)
-    chapter_id = models.SlugField(max_length=20) #make unique
+    # chapter_url : The url block for this chapter (see book_id)
+    chapter_url = models.SlugField(max_length=20) #make unique
     # chapter_number : Defines order of chapters
     chapter_number = models.IntegerField()
     # chapter_title : The plaintext title displayed to readers
